@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "AnimeFun.WinUI (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "AnimeFun.WinUI (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
