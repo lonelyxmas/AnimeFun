@@ -11,9 +11,6 @@
 		<UseWinUI>true</UseWinUI>
 		<EnableMsixTooling>true</EnableMsixTooling>
 		<DefaultLanguage>zh-cn</DefaultLanguage>
-		<PackageCertificateThumbprint>95E40E1A5F0AEFA3083C0E20F27E0DCD7765783F</PackageCertificateThumbprint>
-		<PackageCertificateKeyFile>AnimeFun.WinUI_TemporaryKey.pfx</PackageCertificateKeyFile>
-		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
 	</PropertyGroup>
 
 	<ItemGroup>
