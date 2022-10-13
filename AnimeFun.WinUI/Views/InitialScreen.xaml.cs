@@ -17,7 +17,7 @@ namespace AnimeFun.WinUI.Views
         {
             await Task.Delay(1500);
             imgLogoGif.Visibility = Visibility.Collapsed;
-            Storyboard storyboard = new Storyboard();
+            Storyboard storyboard = new();
             DoubleAnimation doubleAnimation = new()
             {
                 To = -60,
