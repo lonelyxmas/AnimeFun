@@ -3,17 +3,59 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:vm="using:AnimeFun.WinUI.ViewModels"
+      xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:i="using:Microsoft.Xaml.Interactivity"
       mc:Ignorable="d"
-      x:Name="pageMain" Background="#EE4569" Loaded="PageMain_Loaded">
-
-    <StackPanel x:Name="stpMain" HorizontalAlignment="Center" VerticalAlignment="Center">
+      d:DataContext="{d:DesignInstance Type=vm:InitialScreenViewModel}"
+      Background="#EE4569"
+      EntranceNavigationTransitionInfo.IsTargetElement="True">
+    <Page.Resources>
+        <Storyboard x:Name="CompleteStory"
+                    x:FieldModifier="Public">
+            <DoubleAnimation Storyboard.TargetName="stpTranslate"
+                             Storyboard.TargetProperty="Y"
+                             To="-60"
+                             Duration="0:0:0.5" />
+        </Storyboard>
+    </Page.Resources>
+    <i:Interaction.Behaviors>
+        <core:EventTriggerBehavior EventName="Loaded">
+            <core:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </core:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
+    <StackPanel HorizontalAlignment="Center"
+                VerticalAlignment="Center">
         <StackPanel.RenderTransform>
-            <TranslateTransform x:Name="trnMain" Y="0"/>
+            <TranslateTransform x:Name="stpTranslate"
+                                Y="20" />
         </StackPanel.RenderTransform>
-        <Grid Width="800" Height="600">
-            <Image x:Name="imgLogoJpg" Source="/Assets/Images/Initial.jpg"/>
-            <Image x:Name="imgLogoGif" Source="/Assets/Images/Initial.gif"/>
+        <Grid Width="800"
+              Height="600">
+            <Image Source="/Assets/Images/Initial.jpg" />
+            <Image Source="/Assets/Images/Initial.gif">
+                <i:Interaction.Behaviors>
+                    <core:DataTriggerBehavior Binding="{Binding Completed}"
+                                              ComparisonCondition="Equal"
+                                              Value="True">
+                        <core:ChangePropertyAction PropertyName="Visibility"
+                                                   Value="Collapsed" />
+                    </core:DataTriggerBehavior>
+                </i:Interaction.Behaviors>
+            </Image>
         </Grid>
-        <ProgressRing x:Name="proRing" Height="40" Width="40" Foreground="#F2DAC1" IsActive="True" Visibility="Collapsed"/>
+        <ProgressRing Height="40"
+                      Width="40"
+                      Foreground="Transparent"
+                      IsActive="True">
+            <i:Interaction.Behaviors>
+                <core:DataTriggerBehavior Binding="{Binding Loading}"
+                                          ComparisonCondition="Equal"
+                                          Value="True">
+                    <core:ChangePropertyAction PropertyName="Foreground"
+                                               Value="#F2DAC1" />
+                </core:DataTriggerBehavior>
+            </i:Interaction.Behaviors>
+        </ProgressRing>
     </StackPanel>
 </Page>
