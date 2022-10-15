@@ -6,7 +6,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Reflection;
-using Windows.UI;
 using WinUIEx;
 
 namespace AnimeFun.WinUI
@@ -35,7 +34,8 @@ namespace AnimeFun.WinUI
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
             MainWindow.Content = GetService<InitialScreen>();
-            MainWindow.SetTitleBarBackgroundColors(Color.FromArgb(255, 238, 69, 105));
+
+            MainWindow.CenterOnScreen();
             MainWindow.Activate();
         }
 
