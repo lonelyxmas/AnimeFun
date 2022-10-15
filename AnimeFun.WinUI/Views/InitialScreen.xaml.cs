@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml.Controls;
+﻿using AnimeFun.WinUI.ViewModels;
+using Microsoft.UI.Xaml.Controls;
 
 namespace AnimeFun.WinUI.Views
 {
@@ -6,6 +7,7 @@ namespace AnimeFun.WinUI.Views
     {
         public InitialScreen()
         {
+            DataContext = App.GetViewModel<InitialScreen, InitialScreenViewModel>(this);
             InitializeComponent();
         }
     }

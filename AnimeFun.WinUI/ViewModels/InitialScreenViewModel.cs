@@ -19,11 +19,6 @@ namespace AnimeFun.WinUI.ViewModels
         [ObservableProperty]
         private bool loading = false;
 
-        public InitialScreenViewModel(InitialScreen page) : base(page)
-        {
-
-        }
-
         [RelayCommand]
         private async void Loaded()
         {

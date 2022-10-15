@@ -1,8 +1,11 @@
-﻿using AnimeFun.WinUI.ViewModels;
+﻿using AnimeFun.WinUI.Models;
+using AnimeFun.WinUI.ViewModels;
 using AnimeFun.WinUI.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using System.Reflection;
 using Windows.UI;
 using WinUIEx;
 
@@ -10,22 +13,9 @@ namespace AnimeFun.WinUI
 {
     public partial class App : Application
     {
-        public IHost Host
-        {
-            get;
-        }
-
-        public static T GetService<T>() where T : class
-        {
-            if ((Current as App)!.Host.Services.GetService(typeof(T)) is not T service)
-            {
-                throw new ArgumentException($"{typeof(T)} needs to be registered in ConfigureServices within App.xaml.cs.");
-            }
-
-            return service;
-        }
-
         public static Window MainWindow { get; } = new MainWindow();
+
+        public IHost Host { get; }
 
         public App()
         {
@@ -44,9 +34,35 @@ namespace AnimeFun.WinUI
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
-            MainWindow.Content = GetService<InitialScreenViewModel>().Page;
+            MainWindow.Content = GetService<InitialScreen>();
             MainWindow.SetTitleBarBackgroundColors(Color.FromArgb(255, 238, 69, 105));
             MainWindow.Activate();
+        }
+
+        public static T GetService<T>() where T : class
+        {
+            if ((Current as App)!.Host.Services.GetService(typeof(T)) is not T service)
+            {
+                throw new ArgumentException($"{typeof(T)} needs to be registered in ConfigureServices within App.xaml.cs.");
+            }
+
+            return service;
+        }
+
+        public static T GetViewModel<TPage, T>(TPage page) where TPage : Page where T : BaseViewModel<TPage>
+        {
+            T viewModel = GetService<T>();
+            FieldInfo[] fieldInfos = typeof(BaseViewModel<TPage>).GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
+            foreach (FieldInfo item in fieldInfos)
+            {
+                if (item.Name == $"<{nameof(BaseViewModel<TPage>.Page)}>k__BackingField")
+                {
+                    item.SetValue(viewModel, page);
+                    break;
+                }
+            }
+
+            return viewModel;
         }
     }
 }
