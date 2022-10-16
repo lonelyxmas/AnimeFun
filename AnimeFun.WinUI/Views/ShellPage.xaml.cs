@@ -3,15 +3,15 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace AnimeFun.WinUI.Views
 {
-    public sealed partial class InitialScreen : Page
+    public sealed partial class ShellPage : Page
     {
-        public InitialScreen()
+        public ShellPage()
         {
-            DataContext = App.GetViewModel<InitialScreen, InitialScreenViewModel>(this);
+            DataContext = App.GetViewModel<ShellPage, ShellViewModel>(this);
             InitializeComponent();
 
             App.MainWindow.ExtendsContentIntoTitleBar = true;
-            App.MainWindow.SetTitleBar(this);
+            App.MainWindow.SetTitleBar(AppTitleBar);
         }
     }
 }

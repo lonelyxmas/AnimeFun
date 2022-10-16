@@ -38,7 +38,9 @@
 	  <None Remove="Assets\Wide310x150Logo.scale-125.png" />
 	  <None Remove="Assets\Wide310x150Logo.scale-150.png" />
 	  <None Remove="Assets\Wide310x150Logo.scale-400.png" />
+	  <None Remove="Styles\BrushColorDictionary.xaml" />
 	  <None Remove="Views\InitialScreen.xaml" />
+	  <None Remove="Views\ShellPage.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -66,6 +68,18 @@
 
 	<ItemGroup>
 	  <Folder Include="Helpers\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\ShellPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Styles\BrushColorDictionary.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 
 	<PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">

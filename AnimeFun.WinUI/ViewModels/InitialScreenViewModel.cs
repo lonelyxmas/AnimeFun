@@ -2,6 +2,7 @@
 using AnimeFun.WinUI.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace AnimeFun.WinUI.ViewModels
 {
@@ -29,6 +30,9 @@ namespace AnimeFun.WinUI.ViewModels
                 Completed = true;
                 Page.CompleteStory.Begin();
                 Page.CompleteStory.Completed += (a, b) => Loading = true;
+
+                await Task.Delay(5000);
+                App.MainWindow.ContentFrame.Navigate(typeof(ShellPage), null, new DrillInNavigationTransitionInfo());
             }
         }
     }

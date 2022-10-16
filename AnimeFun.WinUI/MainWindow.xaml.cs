@@ -1,8 +1,8 @@
-﻿using Microsoft.UI.Xaml;
+﻿using WinUIEx;
 
 namespace AnimeFun.WinUI
 {
-    public sealed partial class MainWindow : Window
+    public sealed partial class MainWindow : WindowEx
     {
         public MainWindow()
         {

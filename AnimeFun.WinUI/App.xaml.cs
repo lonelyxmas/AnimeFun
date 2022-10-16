@@ -12,7 +12,7 @@ namespace AnimeFun.WinUI
 {
     public partial class App : Application
     {
-        public static Window MainWindow { get; } = new MainWindow();
+        public static MainWindow MainWindow { get; } = new MainWindow();
 
         public IHost Host { get; }
 
@@ -27,14 +27,15 @@ namespace AnimeFun.WinUI
                 {
                     services.AddTransient<InitialScreen>();
                     services.AddTransient<InitialScreenViewModel>();
+                    services.AddTransient<ShellPage>();
+                    services.AddTransient<ShellViewModel>();
                 }).
                 Build();
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
-            MainWindow.Content = GetService<InitialScreen>();
-
+            MainWindow.ContentFrame.Content = GetService<InitialScreen>();
             MainWindow.CenterOnScreen();
             MainWindow.Activate();
         }
