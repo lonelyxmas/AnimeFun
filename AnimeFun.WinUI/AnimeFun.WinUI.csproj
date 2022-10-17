@@ -67,10 +67,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Helpers\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Page Update="Views\ShellPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </Page>
