@@ -15,6 +15,6 @@
               Height="{Binding ElementName=NavigationViewControl, Path=CompactPaneLength}">
         </Grid>
         <NavigationView x:Name="NavigationViewControl"
-                        Grid.Row="1" />
+                        Grid.RowSpan="2" />
     </Grid>
 </Page>

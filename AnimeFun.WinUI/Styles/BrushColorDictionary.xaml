@@ -1,7 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Color x:Key="InitialScreenBackground">#EE4569</Color>
-    <Color x:Key="InitialScreenProgressRingColor">#F2DAC1</Color>
+    <SolidColorBrush x:Key="WindowCaptionBackground">Transparent</SolidColorBrush>
+    <SolidColorBrush x:Key="WindowCaptionBackgroundDisabled">Transparent</SolidColorBrush>
+    <SolidColorBrush x:Key="InitialScreenBackground">#EE4569</SolidColorBrush>
+    <SolidColorBrush x:Key="InitialScreenProgressRingColor">#F2DAC1</SolidColorBrush>
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Light">
             

@@ -7,8 +7,7 @@
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
                 <ResourceDictionary Source="/Styles/BrushColorDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <SolidColorBrush x:Key="WindowCaptionBackground">Transparent</SolidColorBrush>
-            <SolidColorBrush x:Key="WindowCaptionBackgroundDisabled">Transparent</SolidColorBrush>
+            <Thickness x:Key="NavigationViewContentMargin">0,48,0,0</Thickness>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
