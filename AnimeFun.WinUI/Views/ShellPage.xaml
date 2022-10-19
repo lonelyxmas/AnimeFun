@@ -29,8 +29,10 @@
         <NavigationView x:Name="NavigationViewControl"
                         Grid.RowSpan="2"
                         CompactPaneLength="48"
+                        IsBackEnabled="{Binding IsBackEnabled}"
                         MenuItemsSource="{Binding Pages}"
-                        SelectedItem="{Binding SelectPage}">
+                        SelectedItem="{Binding Selected, Mode=TwoWay}"
+                        DisplayModeChanged="NavigationViewControl_DisplayModeChanged">
             <NavigationView.MenuItemTemplate>
                 <DataTemplate x:DataType="models:PageModel">
                     <NavigationViewItem Content="{Binding Title}">
@@ -43,11 +45,20 @@
             </NavigationView.MenuItemTemplate>
             <i:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="ItemInvoked">
-                    <core:InvokeCommandAction Command="{Binding ItemInvokedCommand}" />
+                    <core:InvokeCommandAction Command="{Binding NavigationItemInvokedCommand}" />
+                </core:EventTriggerBehavior>
+                <core:EventTriggerBehavior EventName="BackRequested">
+                    <core:InvokeCommandAction Command="{Binding NavigationBackRequestedCommand}" />
                 </core:EventTriggerBehavior>
             </i:Interaction.Behaviors>
             <Frame x:Name="NavigationFrame"
-                   x:FieldModifier="Public" />
+                   x:FieldModifier="Public">
+                <i:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Navigated">
+                        <core:InvokeCommandAction Command="{Binding FrameNavigatedCommand}" />
+                    </core:EventTriggerBehavior>
+                </i:Interaction.Behaviors>
+            </Frame>
         </NavigationView>
     </Grid>
 </Page>

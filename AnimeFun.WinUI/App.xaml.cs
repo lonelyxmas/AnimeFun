@@ -26,16 +26,13 @@ namespace AnimeFun.WinUI
                 ConfigureServices((context, services) =>
                 {
                     services.AddTransient<InitialScreen>();
-                    services.AddSingleton<InitialScreenViewModel>();
-
+                    services.AddTransient<InitialScreenViewModel>();
                     services.AddTransient<ShellPage>();
-                    services.AddSingleton<ShellViewModel>();
-
+                    services.AddTransient<ShellViewModel>();
                     services.AddTransient<MainPage>();
-                    services.AddSingleton<MainViewModel>();
-
+                    services.AddTransient<MainViewModel>();
                     services.AddTransient<SettingsPage>();
-                    services.AddSingleton<SettingsViewModel>();
+                    services.AddTransient<SettingsViewModel>();
                 }).
                 Build();
         }

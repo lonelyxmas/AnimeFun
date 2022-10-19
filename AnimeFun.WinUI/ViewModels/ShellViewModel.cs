@@ -3,19 +3,21 @@ using AnimeFun.WinUI.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Navigation;
 using System.Collections.ObjectModel;
 
 namespace AnimeFun.WinUI.ViewModels
 {
     public partial class ShellViewModel : BaseViewModel<ShellPage>
     {
-        #region 属性
         [ObservableProperty]
         private ObservableCollection<PageModel> pages = new();
 
         [ObservableProperty]
-        private PageModel selectPage;
-        #endregion
+        private object selected;
+
+        [ObservableProperty]
+        private bool isBackEnabled;
 
         public ShellViewModel()
         {
@@ -28,36 +30,65 @@ namespace AnimeFun.WinUI.ViewModels
             });
         }
 
+        /// <summary>
+        /// 页面加载
+        /// </summary>
         [RelayCommand]
         private void Loaded()
         {
-            SelectPage = Pages.FirstOrDefault();
-            FrameNavigate(SelectPage.View);
+            Selected = Pages.FirstOrDefault();
+            FrameNavigate((Selected as PageModel).View, Selected);
         }
 
+        /// <summary>
+        /// 选择导航Item
+        /// </summary>
+        /// <param name="args"></param>
         [RelayCommand]
-        private void ItemInvoked(NavigationViewItemInvokedEventArgs args)
+        private void NavigationItemInvoked(NavigationViewItemInvokedEventArgs args)
         {
             if (args.IsSettingsInvoked)
             {
-                FrameNavigate(typeof(SettingsPage));
+                FrameNavigate(typeof(SettingsPage), args.InvokedItemContainer);
             }
             else
             {
-                SelectPage = args.InvokedItemContainer.DataContext as PageModel;
-                FrameNavigate(SelectPage.View);
+                FrameNavigate((args.InvokedItemContainer.DataContext as PageModel).View, args.InvokedItemContainer.DataContext);
             }
+        }
+
+        /// <summary>
+        /// 后退页面
+        /// </summary>
+        [RelayCommand]
+        private void NavigationBackRequested()
+        {
+            Page.NavigationFrame.GoBack();
+        }
+
+        /// <summary>
+        /// 已导航到指定页面
+        /// </summary>
+        /// <param name="args"></param>
+        [RelayCommand]
+        private void FrameNavigated(NavigationEventArgs args)
+        {
+            if (args.NavigationMode == NavigationMode.Back)
+            {
+                Selected = args.Parameter;
+            }
+            IsBackEnabled = Page.NavigationFrame.CanGoBack;
         }
 
         /// <summary>
         /// 导航到页面
         /// </summary>
         /// <param name="viewType"></param>
-        private void FrameNavigate(Type viewType)
+        private void FrameNavigate(Type viewType, object parameter)
         {
             if (Page.NavigationFrame.Content == null || Page.NavigationFrame.Content.GetType() != viewType)
             {
-                Page.NavigationFrame.Navigate(viewType, null);
+                Page.NavigationFrame.Navigate(viewType, parameter);
             }
         }
     }
