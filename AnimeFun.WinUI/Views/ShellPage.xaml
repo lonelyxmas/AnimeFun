@@ -3,8 +3,20 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      mc:Ignorable="d">
-
+      xmlns:models="using:AnimeFun.WinUI.Models"
+      xmlns:vm="using:AnimeFun.WinUI.ViewModels"
+      xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:i="using:Microsoft.Xaml.Interactivity"
+      mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance vm:ShellViewModel}">
+    <Page.Resources>
+        <Thickness x:Key="NavigationViewContentMargin">0,48,0,0</Thickness>
+    </Page.Resources>
+    <i:Interaction.Behaviors>
+        <core:EventTriggerBehavior EventName="Loaded">
+            <core:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </core:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -15,6 +27,27 @@
               Height="{Binding ElementName=NavigationViewControl, Path=CompactPaneLength}">
         </Grid>
         <NavigationView x:Name="NavigationViewControl"
-                        Grid.RowSpan="2" />
+                        Grid.RowSpan="2"
+                        CompactPaneLength="48"
+                        MenuItemsSource="{Binding Pages}"
+                        SelectedItem="{Binding SelectPage}">
+            <NavigationView.MenuItemTemplate>
+                <DataTemplate x:DataType="models:PageModel">
+                    <NavigationViewItem Content="{Binding Title}">
+                        <NavigationViewItem.Icon>
+                            <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                      Glyph="{Binding Icon}" />
+                        </NavigationViewItem.Icon>
+                    </NavigationViewItem>
+                </DataTemplate>
+            </NavigationView.MenuItemTemplate>
+            <i:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="ItemInvoked">
+                    <core:InvokeCommandAction Command="{Binding ItemInvokedCommand}" />
+                </core:EventTriggerBehavior>
+            </i:Interaction.Behaviors>
+            <Frame x:Name="NavigationFrame"
+                   x:FieldModifier="Public" />
+        </NavigationView>
     </Grid>
 </Page>
