@@ -6,8 +6,12 @@
       mc:Ignorable="d">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Text="MainPage" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <FlipView>
+            
+        </FlipView>
     </Grid>
 </Page>

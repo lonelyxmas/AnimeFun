@@ -1,4 +1,5 @@
-﻿using AnimeFun.WinUI.Models;
+﻿using AnimeFun.WinUI.Helpers;
+using AnimeFun.WinUI.Models;
 using AnimeFun.WinUI.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -23,7 +24,7 @@ namespace AnimeFun.WinUI.ViewModels
         {
             Pages.Add(new PageModel
             {
-                Title = "首页",
+                Title = "HomePage".GetLocalized(),
                 Icon = "\ue7c3",
                 View = typeof(MainPage),
                 ViewModel = typeof(MainViewModel)
