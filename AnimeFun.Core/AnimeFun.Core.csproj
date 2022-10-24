@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <Folder Include="Contracts\Services\" />
-    <Folder Include="Models\AnimeFun\" />
     <Folder Include="Services\Local\" />
     <Folder Include="Services\Cloud\" />
     <Folder Include="Services\" />
