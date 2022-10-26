@@ -1,5 +1,8 @@
 ﻿namespace AnimeFun.Core.Models.AnimeFun
 {
+    /// <summary>
+    /// 视频信息
+    /// </summary>
     public class VideoInfo : BaseModel
     {
         /// <summary>

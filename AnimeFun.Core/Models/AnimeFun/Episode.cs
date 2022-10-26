@@ -19,5 +19,10 @@
         /// 资源Id（对应云端存储Id）
         /// </summary>
         public string SourceId { get; set; }
+
+        /// <summary>
+        /// 剧集归属的视频信息
+        /// </summary>
+        public VideoInfo VideoInfo { get; set; }
     }
 }
