@@ -1,8 +1,5 @@
 ﻿namespace AnimeFun.Core.Models.AnimeFun
 {
-    /// <summary>
-    /// 剧集
-    /// </summary>
     public class Episode : BaseModel
     {
         /// <summary>

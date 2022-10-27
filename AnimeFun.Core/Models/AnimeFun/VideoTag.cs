@@ -1,8 +1,5 @@
 ﻿namespace AnimeFun.Core.Models.AnimeFun
 {
-    /// <summary>
-    /// 视频标签
-    /// </summary>
     public class VideoTag : BaseModel
     {
         /// <summary>
@@ -14,5 +11,10 @@
         /// 标签描述
         /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        /// 关联视频
+        /// </summary>
+        public List<VideoInfo> VideoInfos { get; set; }
     }
 }
