@@ -13,6 +13,11 @@
         public string Description { get; set; }
 
         /// <summary>
+        /// 视频封面
+        /// </summary>
+        public string Cover { get; set; }
+
+        /// <summary>
         /// 视频标签
         /// </summary>
         public List<VideoTag> VideoTags { get; set; }
