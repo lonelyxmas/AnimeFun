@@ -24,17 +24,20 @@ namespace AnimeFun.Service.DataFactory.Migrations
 
             modelBuilder.Entity("AnimeFun.Core.Models.AnimeFun.Episode", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Cover")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("CreateTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
-
-                    b.Property<int>("Sort")
-                        .HasColumnType("int");
 
                     b.Property<string>("SourceId")
                         .HasColumnType("nvarchar(max)");
@@ -43,10 +46,12 @@ namespace AnimeFun.Service.DataFactory.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdateTime")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasComputedColumnSql("GETDATE()");
 
-                    b.Property<string>("VideoInfoId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid?>("VideoInfoId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -57,11 +62,17 @@ namespace AnimeFun.Service.DataFactory.Migrations
 
             modelBuilder.Entity("AnimeFun.Core.Models.AnimeFun.RecommendVideo", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Cover")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
@@ -72,11 +83,10 @@ namespace AnimeFun.Service.DataFactory.Migrations
                     b.Property<string>("Reason")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Sort")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("UpdateTime")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasComputedColumnSql("GETDATE()");
 
                     b.Property<string>("VideoInfoId")
                         .HasColumnType("nvarchar(max)");
@@ -88,11 +98,17 @@ namespace AnimeFun.Service.DataFactory.Migrations
 
             modelBuilder.Entity("AnimeFun.Core.Models.AnimeFun.VideoInfo", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Cover")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
@@ -103,11 +119,10 @@ namespace AnimeFun.Service.DataFactory.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Sort")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("UpdateTime")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasComputedColumnSql("GETDATE()");
 
                     b.HasKey("Id");
 
@@ -116,8 +131,14 @@ namespace AnimeFun.Service.DataFactory.Migrations
 
             modelBuilder.Entity("AnimeFun.Core.Models.AnimeFun.VideoTag", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<bool>("Deleted")
                         .HasColumnType("bit");
@@ -128,11 +149,10 @@ namespace AnimeFun.Service.DataFactory.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Sort")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("UpdateTime")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasComputedColumnSql("GETDATE()");
 
                     b.HasKey("Id");
 
@@ -141,11 +161,11 @@ namespace AnimeFun.Service.DataFactory.Migrations
 
             modelBuilder.Entity("VideoInfoVideoTag", b =>
                 {
-                    b.Property<string>("VideoInfosId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("VideoInfosId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("VideoTagsId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("VideoTagsId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("VideoInfosId", "VideoTagsId");
 

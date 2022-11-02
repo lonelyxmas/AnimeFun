@@ -11,13 +11,13 @@ namespace AnimeFun.Service.DataFactory.Migrations
                 name: "RecommendVideos",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     VideoInfoId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EpisodeId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Reason = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Cover = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Sort = table.Column<int>(type: "int", nullable: false),
+                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false, computedColumnSql: "GETDATE()"),
                     Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -29,12 +29,12 @@ namespace AnimeFun.Service.DataFactory.Migrations
                 name: "VideoInfos",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Cover = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Sort = table.Column<int>(type: "int", nullable: false),
+                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false, computedColumnSql: "GETDATE()"),
                     Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -46,11 +46,11 @@ namespace AnimeFun.Service.DataFactory.Migrations
                 name: "VideoTags",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Sort = table.Column<int>(type: "int", nullable: false),
+                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false, computedColumnSql: "GETDATE()"),
                     Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -62,13 +62,13 @@ namespace AnimeFun.Service.DataFactory.Migrations
                 name: "Episodes",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Cover = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SourceId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    VideoInfoId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Sort = table.Column<int>(type: "int", nullable: false),
+                    VideoInfoId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false, computedColumnSql: "GETDATE()"),
                     Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -85,8 +85,8 @@ namespace AnimeFun.Service.DataFactory.Migrations
                 name: "VideoInfoVideoTag",
                 columns: table => new
                 {
-                    VideoInfosId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    VideoTagsId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    VideoInfosId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    VideoTagsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {

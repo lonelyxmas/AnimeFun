@@ -28,6 +28,10 @@ namespace AnimeFun.Service.DataFactory
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            // Update-Database -Migration:0
+            // Remove-Migration
+            // Add-Migration InitialCreate -OutputDir .\DataFactory\Migrations
+            // Update-Database InitialCreate
             optionsBuilder.UseSqlServer("Data Source=localhost;Database=AnimeFun;Persist Security Info=True;User ID=sa;Password=wangxi55");
         }
 
