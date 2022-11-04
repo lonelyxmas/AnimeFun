@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
 
 namespace AnimeFun.Service.DataFactory.Migrations
 {
@@ -17,7 +18,7 @@ namespace AnimeFun.Service.DataFactory.Migrations
                     Reason = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Cover = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
-                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false, computedColumnSql: "GETDATE()"),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
                     Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -34,7 +35,7 @@ namespace AnimeFun.Service.DataFactory.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Cover = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
-                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false, computedColumnSql: "GETDATE()"),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
                     Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -50,7 +51,7 @@ namespace AnimeFun.Service.DataFactory.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
-                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false, computedColumnSql: "GETDATE()"),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
                     Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -68,7 +69,7 @@ namespace AnimeFun.Service.DataFactory.Migrations
                     SourceId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VideoInfoId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
-                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false, computedColumnSql: "GETDATE()"),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
                     Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

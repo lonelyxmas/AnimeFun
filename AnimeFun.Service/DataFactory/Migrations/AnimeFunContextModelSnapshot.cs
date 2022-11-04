@@ -46,9 +46,9 @@ namespace AnimeFun.Service.DataFactory.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdateTime")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasComputedColumnSql("GETDATE()");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<Guid?>("VideoInfoId")
                         .HasColumnType("uniqueidentifier");
@@ -84,9 +84,9 @@ namespace AnimeFun.Service.DataFactory.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdateTime")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasComputedColumnSql("GETDATE()");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<string>("VideoInfoId")
                         .HasColumnType("nvarchar(max)");
@@ -120,9 +120,9 @@ namespace AnimeFun.Service.DataFactory.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdateTime")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasComputedColumnSql("GETDATE()");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.HasKey("Id");
 
@@ -150,9 +150,9 @@ namespace AnimeFun.Service.DataFactory.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdateTime")
-                        .ValueGeneratedOnAddOrUpdate()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasComputedColumnSql("GETDATE()");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.HasKey("Id");
 

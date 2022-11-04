@@ -20,11 +20,11 @@
         /// <summary>
         /// 视频标签
         /// </summary>
-        public List<VideoTag> VideoTags { get; set; }
+        public List<VideoTag> VideoTags { get; private set; } = new List<VideoTag>();
 
         /// <summary>
         /// 剧集
         /// </summary>
-        public List<Episode> Episodes { get; set; }
+        public List<Episode> Episodes { get; private set; } = new List<Episode>();
     }
 }

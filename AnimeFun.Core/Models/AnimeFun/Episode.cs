@@ -20,6 +20,6 @@
         /// <summary>
         /// 剧集归属的视频信息
         /// </summary>
-        public VideoInfo VideoInfo { get; set; }
+        public VideoInfo VideoInfo { get; private set; }
     }
 }

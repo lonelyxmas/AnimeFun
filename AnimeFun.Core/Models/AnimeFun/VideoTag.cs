@@ -15,6 +15,6 @@
         /// <summary>
         /// 关联视频
         /// </summary>
-        public List<VideoInfo> VideoInfos { get; set; }
+        public List<VideoInfo> VideoInfos { get; private set; } = new List<VideoInfo>();
     }
 }

@@ -12,7 +12,7 @@ namespace AnimeFun.Service.DataFactory.Configurations
 
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
             builder.Property(p => p.CreateTime).HasDefaultValueSql("GETDATE()");
-            builder.Property(p => p.UpdateTime).HasComputedColumnSql("GETDATE()");
+            builder.Property(p => p.UpdateTime).HasDefaultValueSql("GETDATE()");
         }
     }
 }

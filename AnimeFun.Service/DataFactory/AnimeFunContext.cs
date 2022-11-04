@@ -26,6 +26,17 @@ namespace AnimeFun.Service.DataFactory
         /// </summary>
         public DbSet<RecommendVideo> RecommendVideos { get; set; }
 
+        public AnimeFunContext()
+        {
+            ChangeTracker.StateChanged += (sender, args) =>
+            {
+                if (args.NewState == EntityState.Modified)
+                {
+                    args.Entry.Property(nameof(BaseModel.UpdateTime)).CurrentValue = DateTime.Now;
+                }
+            };
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Update-Database -Migration:0
