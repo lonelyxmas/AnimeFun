@@ -12,9 +12,9 @@ namespace AnimeFun.Service.DataFactory
             AnimeFunContext context = new();
 
             bool state = context.VideoInfos.Any()
-                         || context.Episodes.Any()
-                         || context.VideoTags.Any()
-                         || context.RecommendVideos.Any();
+                         && context.Episodes.Any()
+                         && context.VideoTags.Any()
+                         && context.RecommendVideos.Any();
             if (!state)
             {
                 List<VideoTag> videoTags = GetVideoTags();

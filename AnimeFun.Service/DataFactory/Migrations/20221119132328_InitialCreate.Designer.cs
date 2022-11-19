@@ -12,17 +12,18 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AnimeFun.Service.DataFactory.Migrations
 {
     [DbContext(typeof(AnimeFunContext))]
-    [Migration("20221104100000_InitialCreate")]
+    [Migration("20221119132328_InitialCreate")]
     partial class InitialCreate
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.10")
+                .HasAnnotation("ProductVersion", "7.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("AnimeFun.Core.Models.AnimeFun.Episode", b =>
                 {

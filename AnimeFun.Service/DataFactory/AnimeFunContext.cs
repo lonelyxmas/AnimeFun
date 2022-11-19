@@ -43,7 +43,7 @@ namespace AnimeFun.Service.DataFactory
             // Remove-Migration
             // Add-Migration InitialCreate -OutputDir .\DataFactory\Migrations
             // Update-Database InitialCreate
-            optionsBuilder.UseSqlServer("Data Source=localhost;Database=AnimeFun;Persist Security Info=True;User ID=sa;Password=wangxi55");
+            optionsBuilder.UseSqlServer("Data Source=localhost;Database=AnimeFun;Persist Security Info=True;User ID=sa;Password=wangxi55;TrustServerCertificate=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
