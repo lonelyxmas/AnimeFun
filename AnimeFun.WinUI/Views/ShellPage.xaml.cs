@@ -9,6 +9,7 @@ namespace AnimeFun.WinUI.Views
         public ShellPage()
         {
             DataContext = App.GetViewModel<ShellPage, ShellViewModel>(this);
+
             InitializeComponent();
 
             App.MainWindow.ExtendsContentIntoTitleBar = true;

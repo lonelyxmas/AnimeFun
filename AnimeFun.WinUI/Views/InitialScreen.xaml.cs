@@ -8,6 +8,7 @@ namespace AnimeFun.WinUI.Views
         public InitialScreen()
         {
             DataContext = App.GetViewModel<InitialScreen, InitialScreenViewModel>(this);
+
             InitializeComponent();
 
             App.MainWindow.ExtendsContentIntoTitleBar = true;

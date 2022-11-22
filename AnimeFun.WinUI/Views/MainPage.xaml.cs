@@ -1,5 +1,6 @@
 ﻿using AnimeFun.WinUI.ViewModels;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Navigation;
 
 namespace AnimeFun.WinUI.Views
 {
@@ -7,8 +8,9 @@ namespace AnimeFun.WinUI.Views
     {
         public MainPage()
         {
-            NavigationCacheMode = Microsoft.UI.Xaml.Navigation.NavigationCacheMode.Required;
+            NavigationCacheMode = NavigationCacheMode.Required;
             DataContext = App.GetViewModel<MainPage, MainViewModel>(this);
+
             InitializeComponent();
         }
     }
