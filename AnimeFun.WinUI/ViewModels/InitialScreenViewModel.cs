@@ -23,7 +23,7 @@ namespace AnimeFun.WinUI.ViewModels
         [RelayCommand]
         private async void Loaded()
         {
-            if (!completed)
+            if (!Completed)
             {
                 await Task.Delay(1500);
 
