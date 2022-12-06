@@ -9,6 +9,8 @@
       NavigationCacheMode="Required">
 
     <Grid>
-
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="VideoLibraryPage" />
     </Grid>
 </Page>

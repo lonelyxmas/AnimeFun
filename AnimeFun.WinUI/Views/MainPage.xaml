@@ -7,8 +7,10 @@
       mc:Ignorable="d"
       d:DataContext="{d:DesignInstance vm:MainViewModel}"
       NavigationCacheMode="Required">
-    
+
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="MainPage" />
     </Grid>
 </Page>
