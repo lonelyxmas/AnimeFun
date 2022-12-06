@@ -43,8 +43,10 @@
 		<None Remove="Styles\BrushColorDictionary.xaml" />
 		<None Remove="Views\InitialScreen.xaml" />
 		<None Remove="Views\MainPage.xaml" />
+		<None Remove="Views\MusicLibraryPage.xaml" />
 		<None Remove="Views\SettingsPage.xaml" />
 		<None Remove="Views\ShellPage.xaml" />
+		<None Remove="Views\VideoLibraryPage.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -62,6 +64,18 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\AnimeFun.Core\AnimeFun.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\MusicLibraryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\VideoLibraryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 
 	<ItemGroup>

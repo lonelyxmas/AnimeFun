@@ -12,9 +12,11 @@ namespace AnimeFun.WinUI
 {
     public partial class App : Application
     {
+        #region Property
         public static MainWindow MainWindow { get; } = new MainWindow();
 
         public IHost Host { get; }
+        #endregion
 
         public App()
         {
@@ -27,12 +29,21 @@ namespace AnimeFun.WinUI
                 {
                     services.AddTransient<InitialScreen>();
                     services.AddSingleton<InitialScreenViewModel>();
-                    services.AddTransient<ShellPage>();
-                    services.AddSingleton<ShellViewModel>();
+
                     services.AddTransient<MainPage>();
                     services.AddSingleton<MainViewModel>();
+
+                    services.AddTransient<MusicLibraryPage>();
+                    services.AddSingleton<MusicLibraryViewModel>();
+
                     services.AddTransient<SettingsPage>();
                     services.AddSingleton<SettingsViewModel>();
+
+                    services.AddTransient<ShellPage>();
+                    services.AddSingleton<ShellViewModel>();
+
+                    services.AddTransient<VideoLibraryPage>();
+                    services.AddSingleton<VideoLibraryViewModel>();
                 }).
                 Build();
         }

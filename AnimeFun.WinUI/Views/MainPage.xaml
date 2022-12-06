@@ -5,12 +5,10 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:AnimeFun.WinUI.ViewModels"
       mc:Ignorable="d"
-      d:DataContext="{d:DesignInstance vm:MainViewModel}">
-
+      d:DataContext="{d:DesignInstance vm:MainViewModel}"
+      NavigationCacheMode="Required">
+    
     <Grid>
-        <MediaPlayerElement Source="{Binding Source}"
-                            Stretch="Uniform"
-                            AutoPlay="False"
-                            AreTransportControlsEnabled="True" />
+        
     </Grid>
 </Page>

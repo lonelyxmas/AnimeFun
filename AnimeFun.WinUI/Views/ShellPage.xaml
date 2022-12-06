@@ -6,7 +6,6 @@
       xmlns:vm="using:AnimeFun.WinUI.ViewModels"
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
       xmlns:i="using:Microsoft.Xaml.Interactivity"
-      xmlns:views="using:AnimeFun.WinUI.Views"
       mc:Ignorable="d"
       d:DataContext="{d:DesignInstance vm:ShellViewModel}">
     <Page.Resources>
@@ -27,29 +26,39 @@
               Height="{Binding ElementName=NavigationViewControl, Path=CompactPaneLength}">
         </Grid>
         <NavigationView x:Name="NavigationViewControl"
+                        x:FieldModifier="public"
                         Grid.RowSpan="2"
                         CompactPaneLength="48"
                         IsBackEnabled="{Binding IsBackEnabled}"
                         SelectedItem="{Binding Selected, Mode=TwoWay}"
-                        Header="123"
+                        Header="{Binding Selected.Content}"
                         DisplayModeChanged="NavigationViewControl_DisplayModeChanged">
             <NavigationView.MenuItems>
-                <NavigationViewItem x:Uid="Shell_Main">
+                <NavigationViewItem x:Uid="Shell_Main"
+                                    Tag="AnimeFun.WinUI.Views.MainPage">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
                                   Glyph="&#xe80f;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_MusicLibrary">
+                <NavigationViewItem x:Uid="Shell_MusicLibrary"
+                                    Tag="AnimeFun.WinUI.Views.MusicLibraryPage">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
                                   Glyph="&#xe8d6;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Uid="Shell_VideoLibrary">
+                <NavigationViewItem x:Uid="Shell_VideoLibrary"
+                                    Tag="AnimeFun.WinUI.Views.VideoLibraryPage">
                     <NavigationViewItem.Icon>
                         <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
                                   Glyph="&#xe8b2;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:Uid="Shell_History">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                  Glyph="&#xe81c;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
@@ -62,8 +71,7 @@
                 </core:EventTriggerBehavior>
             </i:Interaction.Behaviors>
             <Frame x:Name="NavigationFrame"
-                   x:FieldModifier="Public"
-                   Grid.Row="1">
+                   x:FieldModifier="public">
                 <i:Interaction.Behaviors>
                     <core:EventTriggerBehavior EventName="Navigated">
                         <core:InvokeCommandAction Command="{Binding FrameNavigatedCommand}" />

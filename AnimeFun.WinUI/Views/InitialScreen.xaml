@@ -11,7 +11,7 @@
       Background="{ThemeResource InitialScreenBackground}">
     <Page.Resources>
         <Storyboard x:Name="CompleteStory"
-                    x:FieldModifier="Public">
+                    x:FieldModifier="public">
             <DoubleAnimation Storyboard.TargetName="Translate"
                              Storyboard.TargetProperty="Y"
                              To="-60"
