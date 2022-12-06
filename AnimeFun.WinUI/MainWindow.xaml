@@ -7,7 +7,8 @@
                    mc:Ignorable="d"
                    MinWidth="960"
                    MinHeight="600">
-    <Frame x:Name="ContentFrame" x:FieldModifier="Public">
+    <Frame x:Name="ContentFrame"
+           x:FieldModifier="Public">
         <Frame.ContentTransitions>
             <TransitionCollection>
                 <NavigationThemeTransition />

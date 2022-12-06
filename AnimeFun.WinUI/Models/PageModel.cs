@@ -7,7 +7,5 @@
         public string Icon { get; set; }
 
         public Type View { get; set; }
-
-        public Type ViewModel { get; set; }
     }
 }

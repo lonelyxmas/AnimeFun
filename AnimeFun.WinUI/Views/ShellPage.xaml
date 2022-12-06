@@ -3,10 +3,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:models="using:AnimeFun.WinUI.Models"
       xmlns:vm="using:AnimeFun.WinUI.ViewModels"
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
       xmlns:i="using:Microsoft.Xaml.Interactivity"
+      xmlns:views="using:AnimeFun.WinUI.Views"
       mc:Ignorable="d"
       d:DataContext="{d:DesignInstance vm:ShellViewModel}">
     <Page.Resources>
@@ -30,19 +30,29 @@
                         Grid.RowSpan="2"
                         CompactPaneLength="48"
                         IsBackEnabled="{Binding IsBackEnabled}"
-                        MenuItemsSource="{Binding Pages}"
                         SelectedItem="{Binding Selected, Mode=TwoWay}"
+                        Header="123"
                         DisplayModeChanged="NavigationViewControl_DisplayModeChanged">
-            <NavigationView.MenuItemTemplate>
-                <DataTemplate x:DataType="models:PageModel">
-                    <NavigationViewItem Content="{Binding Title}">
-                        <NavigationViewItem.Icon>
-                            <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
-                                      Glyph="{Binding Icon}" />
-                        </NavigationViewItem.Icon>
-                    </NavigationViewItem>
-                </DataTemplate>
-            </NavigationView.MenuItemTemplate>
+            <NavigationView.MenuItems>
+                <NavigationViewItem x:Uid="Shell_Main">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                  Glyph="&#xe80f;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:Uid="Shell_MusicLibrary">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                  Glyph="&#xe8d6;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:Uid="Shell_VideoLibrary">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                  Glyph="&#xe8b2;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
             <i:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="ItemInvoked">
                     <core:InvokeCommandAction Command="{Binding NavigationItemInvokedCommand}" />
@@ -52,7 +62,8 @@
                 </core:EventTriggerBehavior>
             </i:Interaction.Behaviors>
             <Frame x:Name="NavigationFrame"
-                   x:FieldModifier="Public">
+                   x:FieldModifier="Public"
+                   Grid.Row="1">
                 <i:Interaction.Behaviors>
                     <core:EventTriggerBehavior EventName="Navigated">
                         <core:InvokeCommandAction Command="{Binding FrameNavigatedCommand}" />

@@ -1,35 +1,19 @@
-﻿using AnimeFun.WinUI.Helpers;
-using AnimeFun.WinUI.Models;
+﻿using AnimeFun.WinUI.Models;
 using AnimeFun.WinUI.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
-using System.Collections.ObjectModel;
 
 namespace AnimeFun.WinUI.ViewModels
 {
     public partial class ShellViewModel : BaseViewModel<ShellPage>
     {
         [ObservableProperty]
-        private ObservableCollection<PageModel> pages = new();
-
-        [ObservableProperty]
-        private object selected;
+        private NavigationViewItem selected;
 
         [ObservableProperty]
         private bool isBackEnabled;
-
-        public ShellViewModel()
-        {
-            Pages.Add(new PageModel
-            {
-                Title = "HomePage".GetLocalized(),
-                Icon = "\ue7c3",
-                View = typeof(MainPage),
-                ViewModel = typeof(MainViewModel)
-            });
-        }
 
         /// <summary>
         /// 页面加载
@@ -37,8 +21,7 @@ namespace AnimeFun.WinUI.ViewModels
         [RelayCommand]
         private void Loaded()
         {
-            Selected = Pages.FirstOrDefault();
-            FrameNavigate((Selected as PageModel).View, Selected);
+
         }
 
         /// <summary>
@@ -54,7 +37,7 @@ namespace AnimeFun.WinUI.ViewModels
             }
             else
             {
-                FrameNavigate((args.InvokedItemContainer.DataContext as PageModel).View, args.InvokedItemContainer.DataContext);
+                FrameNavigate(args.InvokedItemContainer.Tag as Type, args.InvokedItemContainer);
             }
         }
 
@@ -76,7 +59,7 @@ namespace AnimeFun.WinUI.ViewModels
         {
             if (args.NavigationMode == NavigationMode.Back)
             {
-                Selected = args.Parameter;
+                Selected = args.Parameter as NavigationViewItem;
             }
             IsBackEnabled = Page.NavigationFrame.CanGoBack;
         }
