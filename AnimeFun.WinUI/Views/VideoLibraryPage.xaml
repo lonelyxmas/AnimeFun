@@ -9,8 +9,27 @@
       NavigationCacheMode="Required">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Text="VideoLibraryPage" />
+        <Pivot>
+            <PivotItem Header="Hot">
+                <Grid Background="Red">
+                    
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Anime">
+                <Grid Background="Plum">
+
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Movie">
+                <Grid Background="RoyalBlue">
+
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Short Video">
+                <Grid Background="PowderBlue">
+
+                </Grid>
+            </PivotItem>
+        </Pivot>
     </Grid>
 </Page>
