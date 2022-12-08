@@ -32,6 +32,7 @@ namespace AnimeFun.WinUI.ViewModels
                 Page.CompleteStory.Completed += (a, b) => Loading = true;
 
                 await Task.Delay(5000);
+
                 App.MainWindow.ContentFrame.Navigate(typeof(ShellPage), null, new DrillInNavigationTransitionInfo());
             }
         }

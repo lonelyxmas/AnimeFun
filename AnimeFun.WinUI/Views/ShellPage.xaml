@@ -8,24 +8,29 @@
       xmlns:i="using:Microsoft.Xaml.Interactivity"
       mc:Ignorable="d"
       d:DataContext="{d:DesignInstance vm:ShellViewModel}">
+    
     <Page.Resources>
         <Thickness x:Key="NavigationViewContentMargin">0,48,0,0</Thickness>
         <Thickness x:Key="NavigationFrameContentMargin">0,20,0,0</Thickness>
     </Page.Resources>
+    
     <i:Interaction.Behaviors>
         <core:EventTriggerBehavior EventName="Loaded">
             <core:InvokeCommandAction Command="{Binding LoadedCommand}" />
         </core:EventTriggerBehavior>
     </i:Interaction.Behaviors>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
+        
         <Grid x:Name="AppTitleBar"
               Grid.Row="0"
               Height="{Binding ElementName=NavigationViewControl, Path=CompactPaneLength}">
         </Grid>
+        
         <NavigationView x:Name="NavigationViewControl"
                         x:FieldModifier="public"
                         Grid.RowSpan="2"
@@ -63,6 +68,7 @@
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
+            
             <i:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="ItemInvoked">
                     <core:InvokeCommandAction Command="{Binding NavigationItemInvokedCommand}" />
@@ -71,6 +77,7 @@
                     <core:InvokeCommandAction Command="{Binding NavigationBackRequestedCommand}" />
                 </core:EventTriggerBehavior>
             </i:Interaction.Behaviors>
+            
             <Frame x:Name="NavigationFrame"
                    x:FieldModifier="public"
                    Margin="{StaticResource NavigationFrameContentMargin}">

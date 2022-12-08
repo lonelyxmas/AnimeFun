@@ -9,27 +9,36 @@
       NavigationCacheMode="Required">
 
     <Grid>
-        <Pivot>
-            <PivotItem Header="Hot">
-                <Grid Background="Red">
-                    
-                </Grid>
-            </PivotItem>
-            <PivotItem Header="Anime">
-                <Grid Background="Plum">
-
-                </Grid>
-            </PivotItem>
-            <PivotItem Header="Movie">
-                <Grid Background="RoyalBlue">
-
-                </Grid>
-            </PivotItem>
-            <PivotItem Header="Short Video">
-                <Grid Background="PowderBlue">
-
-                </Grid>
-            </PivotItem>
-        </Pivot>
+        <Grid x:Name="Hot"
+              HorizontalAlignment="Center"
+              Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       Text="Hot" />
+            <ScrollViewer Grid.Row="1"
+                          HorizontalScrollBarVisibility="Auto"
+                          VerticalScrollBarVisibility="Disabled">
+                <ItemsRepeater ItemsSource="{Binding HotDatas}">
+                    <ItemsRepeater.Layout>
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="10" />
+                    </ItemsRepeater.Layout>
+                    <ItemsRepeater.ItemTemplate>
+                        <DataTemplate>
+                            <Button Width="240"
+                                    Height="360">
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Text="{Binding}" />
+                            </Button>
+                        </DataTemplate>
+                    </ItemsRepeater.ItemTemplate>
+                </ItemsRepeater>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Page>

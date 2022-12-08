@@ -51,8 +51,8 @@ namespace AnimeFun.WinUI
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
             MainWindow.ContentFrame.Content = GetService<InitialScreen>();
-            MainWindow.CenterOnScreen();
             MainWindow.Activate();
+            MainWindow.CenterOnScreen();
         }
 
         public static T GetService<T>() where T : class

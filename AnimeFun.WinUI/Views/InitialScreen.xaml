@@ -9,6 +9,7 @@
       mc:Ignorable="d"
       d:DataContext="{d:DesignInstance vm:InitialScreenViewModel}"
       Background="{ThemeResource InitialScreenBackground}">
+
     <Page.Resources>
         <Storyboard x:Name="CompleteStory"
                     x:FieldModifier="public">
@@ -22,11 +23,13 @@
             </DoubleAnimation>
         </Storyboard>
     </Page.Resources>
+
     <i:Interaction.Behaviors>
         <core:EventTriggerBehavior EventName="Loaded">
             <core:InvokeCommandAction Command="{Binding LoadedCommand}" />
         </core:EventTriggerBehavior>
     </i:Interaction.Behaviors>
+
     <StackPanel Grid.Row="1"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
@@ -34,6 +37,7 @@
             <TranslateTransform x:Name="Translate"
                                 Y="20" />
         </StackPanel.RenderTransform>
+
         <Grid Width="800"
               Height="600">
             <Image Source="/Assets/Images/Initial.jpg" />
