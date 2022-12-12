@@ -1,12 +1,11 @@
 ﻿using WinUIEx;
 
-namespace AnimeFun.WinUI
+namespace AnimeFun.WinUI;
+
+public sealed partial class MainWindow : WindowEx
 {
-    public sealed partial class MainWindow : WindowEx
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
