@@ -1,0 +1,29 @@
+<Project>
+	
+	<PropertyGroup>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+	</PropertyGroup>
+
+	<!--Core-->
+	<ItemGroup>
+		<PackageVersion Include="log4net" Version="2.0.15" />
+		<PackageVersion Include="Newtonsoft.Json" Version="13.0.2" />
+	</ItemGroup>
+
+	<!--Service-->
+	<ItemGroup>
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.0" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.0" />
+		<PackageVersion Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+	</ItemGroup>
+
+	<!--WinUI-->
+	<ItemGroup>
+		<PackageVersion Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+		<PackageVersion Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
+		<PackageVersion Include="Microsoft.WindowsAppSDK" Version="1.2.221116.1" />
+		<PackageVersion Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.9" />
+		<PackageVersion Include="WinUIEx" Version="2.0.0" />
+	</ItemGroup>
+	
+</Project>

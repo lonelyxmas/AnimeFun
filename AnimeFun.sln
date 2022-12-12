@@ -3,11 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimeFun.WinUI", "AnimeFun.WinUI\AnimeFun.WinUI.csproj", "{33DD1EAC-C903-4BDC-B0D2-264286281938}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimeFun.WinUI", "Source\AnimeFun.WinUI\AnimeFun.WinUI.csproj", "{33DD1EAC-C903-4BDC-B0D2-264286281938}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimeFun.Core", "AnimeFun.Core\AnimeFun.Core.csproj", "{0BC6AFB1-A715-432A-ACC8-2765203F87D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimeFun.Core", "Source\AnimeFun.Core\AnimeFun.Core.csproj", "{0BC6AFB1-A715-432A-ACC8-2765203F87D5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimeFun.Service", "AnimeFun.Service\AnimeFun.Service.csproj", "{F891DFB9-8ED6-4803-BC2E-93108A8A81E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimeFun.Service", "Source\AnimeFun.Service\AnimeFun.Service.csproj", "{F891DFB9-8ED6-4803-BC2E-93108A8A81E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{221E5131-6561-4C79-8362-A97E41CF0EF6}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Packages.props = Directory.Packages.props
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

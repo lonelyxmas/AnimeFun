@@ -6,12 +6,12 @@
 		<PlatformTarget>x64</PlatformTarget>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>disable</Nullable>
-		<BaseOutputPath>..\Builder\Core\</BaseOutputPath>
+		<BaseOutputPath>..\..\Builder\Core\</BaseOutputPath>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="log4net" Version="2.0.15" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+		<PackageReference Include="log4net" />
+		<PackageReference Include="Newtonsoft.Json" />
 	</ItemGroup>
 
 </Project>

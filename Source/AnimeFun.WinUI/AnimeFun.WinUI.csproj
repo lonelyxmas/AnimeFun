@@ -14,7 +14,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>disable</Nullable>
 		<DefaultLanguage>zh-cn</DefaultLanguage>
-		<BaseOutputPath>..\Builder\WinUI\</BaseOutputPath>
+		<BaseOutputPath>..\..\Builder\WinUI\</BaseOutputPath>
 	</PropertyGroup>
 	<ItemGroup>
 		<Content Remove="Assets\AnimeLogo\Anime 100x100.png" />
@@ -50,11 +50,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
-		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.221116.1" />
-		<PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.9" />
-		<PackageReference Include="WinUIEx" Version="2.0.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" />
+		<PackageReference Include="Microsoft.WindowsAppSDK" />
+		<PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" />
+		<PackageReference Include="WinUIEx" />
 		<Manifest Include="$(ApplicationManifest)" />
 	</ItemGroup>
 
@@ -67,15 +67,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Page Update="Views\MusicLibraryPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Views\MusicLibraryPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Page Update="Views\VideoLibraryPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </Page>
+		<Page Update="Views\VideoLibraryPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
 	</ItemGroup>
 
 	<ItemGroup>
